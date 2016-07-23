@@ -161,6 +161,7 @@ bar {
         tray_output primary
 }
 
-# Exec statements for when i3 first starts up and logs in
-
-
+# Exec stateents for when i3 first starts up and logs in
+#
+exec vmware-user-suid-wrapper --no-startup-id
+exec --no-startup-id nitrogen --restore
