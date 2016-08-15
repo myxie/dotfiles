@@ -1,4 +1,4 @@
-syntax on
+" syntax on
 set nocompatible
 filetype off
  
@@ -9,6 +9,7 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
 call vundle#end()
 filetype plugin indent on
 
@@ -27,3 +28,6 @@ set number
 
 " Maps & Remaps
 :inoremap jk <Esc>
+
+" Tabs as Spaces 
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
