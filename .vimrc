@@ -7,9 +7,7 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#rc()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
+Plugin 'reedes/vim-pencil'
 call vundle#end()
 filetype plugin indent on
 
