@@ -1,11 +1,12 @@
 ! Initial rxvt setup
-URxvt.font: xft:Inconsolata:40
+URxvt.font: xft:Inconsolata:pixelsize=18
 URxvt.scrollBar: false
-
+URxvt.perl-ext-common: default,matcher,clipboard
 ! Transparency (Fake)
 !URxvt.transparent: true
 URxvt.shading: 20
 ! Base16 Monokai-Edited for black background (from ChrisKempson base16-xresouces on Github)
+rofi.lines: 5
 
 #define base00 #000000
 #define base01 #383830
