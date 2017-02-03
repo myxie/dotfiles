@@ -36,7 +36,7 @@ bindsym $mod+Return exec rxvt-unicode
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show run -font "Inconsolata 14" -lines 3 -eh 2
+bindsym $mod+d exec rofi -show run -font "Inconsolata 14" -lines 3 -eh 2 -width 100 -padding 460 -bc black -hidescrollbar -opacity "80"
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -44,10 +44,10 @@ bindsym $mod+d exec rofi -show run -font "Inconsolata 14" -lines 3 -eh 2
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -56,16 +56,19 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up bindsym $mod+Shift+semicolon move right # alternatively, you can use the cursor keys:
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+z split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -159,11 +162,13 @@ bar {
         tray_output primary
 }
 
-bindsym $mod+Control+l exec "i3lock -i /home/croutons/Pictures/wallhaven-253019.png"
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # Exec stateents for when i3 first starts up and logs in
 #
 exec vmware-user-suid-wrapper --no-startup-id
 exec toggle
-exec feh --no-startup-id --bg-scale /home/croutons/Pictures/wallhaven-253019.png
-
+exec_always feh --no-startup-id --bg-scale /home/croutons/Pictures/wallhaven-253019.png
+exec_always compton #-f
