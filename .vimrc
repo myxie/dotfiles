@@ -15,6 +15,14 @@ filetype plugin indent on
 let g:airline_powerline_fonts = 1  
 set laststatus=2
 let g:airline_theme='tomorrow'
+let g:tex_flavor = "latex"
+
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+    autocmd Filetype tex          call pencil#init()
+augroup END
 
 " Colour setup
 colorscheme base16-monokai

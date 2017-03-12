@@ -174,11 +174,13 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 
-bindsym $mod+Control+l exec "i3lock -i /home/croutons/Pictures/wallhaven-253019.png"
+bindsym $mod+Control+l exec "i3lock -i /home/croutons/Pictures/IMG_9131.png"
 
 # Exec stateents for when i3 first starts up and logs in
 #
 exec vmware-user-suid-wrapper --no-startup-id
 exec toggle
-exec_always feh --no-startup-id --bg-scale /home/croutons/Pictures/wallhaven-253019.png
+exec_always feh --no-startup-id --bg-scale /home/croutons/Pictures/IMG_9131.png
 exec_always compton #-f
+
+exec --no-startup-id dropbox start
