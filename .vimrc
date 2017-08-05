@@ -19,15 +19,15 @@ let g:tex_flavor = "latex"
 
 augroup pencil
     autocmd!
-    autocmd FileType markdown,mkd call pencil#init()
-    autocmd FileType text         call pencil#init()
-    autocmd Filetype tex          call pencil#init()
+    autocmd FileType markdown,mkd call pencil#init({'wrap': 'hard'})
+    autocmd FileType text         call pencil#init({'wrap': 'hard'})
+    autocmd Filetype tex          call pencil#init({'wrap': 'hard'})
+    autocmd Filetype notes        call pencil#init({'wrap': 'hard'})
 augroup END
 
 " Colour setup
 colorscheme base16-monokai
-highlight Normal ctermbg=none
-
+highlight Normal ctermbg=black
 " Number fun
 set relativenumber 
 set number
