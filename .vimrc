@@ -1,24 +1,27 @@
-" syntax on
+syntax on
 set nocompatible
 filetype off
- 
-" Vundle and plugin management
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#rc()
+set term=screen-256color 
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'reedes/vim-pencil'
-call vundle#end()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+"
+" let Vundle manage Vundle, required
+ Plugin 'VundleVim/Vundle.vim'
+ Plugin 'vimwiki/vimwiki'
+ call vundle#end()
 filetype plugin indent on
 
-" airline
-let g:airline_powerline_fonts = 1  
-set laststatus=2
-let g:airline_theme='tomorrow'
+let g:vimwiki_list = [{'path':'~/Dropbox/vimwiki', 
+        \'path_html': '~/vimwiki_html/', 
+        \'css_name': 'main.css',
+        \'ext':'.txt'}] 
 
 " Colour setup
-colorscheme base16-monokai
-highlight Normal ctermbg=none
+" colorscheme monokai
+" highlight Normal ctermbg=none
 
 " Number fun
 set relativenumber 
