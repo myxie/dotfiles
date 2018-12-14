@@ -33,18 +33,44 @@
 (global-set-key (kbd "C-x M-t") 'myxie/new-terminal)
 
 ;; Fonts
-(add-to-list 'default-frame-alist '(font . "Monaco" ))
-(set-face-attribute 'default t :font "Monaco" )
+(add-to-list 'default-frame-alist '(font . "Monaco-12" ))
+(set-face-attribute 'default t :font "Monaco-12" )
+
+;; Insert licenses/TeX preamble for new files
+(auto-insert-mode)  ;;; Adds hook to find-files-hook
+(setq auto-insert-directory "~/.templates/") ;;; Or use custom, *NOTE* Trailing slash important
+(define-auto-insert "\.c" "c-template.c")
+(define-auto-insert "\.py" "py-template.py")
+(define-auto-insert "\.tex" "tex-template.tex")
 
 
-
-;;
-;;(auto-insert-mode)  ;;; Adds hook to find-files-hook
-;;(setq auto-insert-directory "~/.templates/") ;;; Or use custom, *NOTE* Trailing slash important
-;;    (define-auto-insert "\.c" "c-template.c")
-;;    (define-auto-insert "\.py" "py-template.py")
 
 ;; org mode
+;; org mode
+;;(add-to-list 'auto-mode-alist '("\\Dropbox\\.org\\'" . org-mode))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(bold ((t nil)))
+ '(org-level-1 ((t (:inherit outline-1 :height 1.0))))
+ '(org-level-2 ((t (:inherit outline-2 :height 1.0))))
+ '(org-level-3 ((t (:inherit outline-3 :height 1.0))))
+ '(org-level-4 ((t (:inherit outline-4 :height 1.0))))
+ '(org-level-5 ((t (:inherit outline-5 :height 1.0)))))
+
+;; no bold
+ (mapc
+  (lambda (face)
+    (set-face-attribute face nil :weight 'normal))
+  (face-list))
+;;docview
+(require 'doc-view)
+(setq doc-view-resolution 400)
+(setq doc-view-continuous 1)
+
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
