@@ -103,9 +103,39 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+##########################################
+# EXPORT MANAGEMENT
+##########################################
+
 export EDITOR=nvim
+export PATH=$PATH:/home/rwb/.local/bin
 
-alias taskw='TASKRC=$HOME/.taskrc_work task'
-alias taskp='TASKRC=$HOME/.taskrc_home task'
+##########################################
+# ALIAS MANAGEMENT
+##########################################
 
-taskp
+# taskwarrior
+alias wtasks='export TASKRC=$HOME/.taskrc_work'
+alias taskp='export TASKRC=$HOME/.taskrc_home'
+alias tt='t due:today'
+
+# Bash conveniences
+alias check='echo $?'
+
+##########################################
+# FUNCTION MANAGEMENT
+##########################################
+
+
+function Config(){ 
+	$EDITOR ~/.zshrc
+	source ~/.zshrc
+	echo "Updated ~/.zshrc"
+}
+
+function SyncConfig(){
+	cp ~/.zshrc ~/github/dotfiles
+	la ~/github/dotfiles/.zshrc
+}
+
+
