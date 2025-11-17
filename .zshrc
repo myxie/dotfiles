@@ -76,9 +76,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -103,12 +100,14 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 ##########################################
 # EXPORT MANAGEMENT
 ##########################################
 
 export EDITOR=nvim
-export PATH=$PATH:/home/rwb/.local/bin
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin/"
+export TODAY_DIR=$HOME/today/
 
 ##########################################
 # ALIAS MANAGEMENT
@@ -134,8 +133,19 @@ function Config(){
 }
 
 function SyncConfig(){
-	cp ~/.zshrc ~/github/dotfiles
+	echo "Copying ~/.zshrc..."
+	diff ~/.zshrc ~/github/dotfiles/.zshrc
+	cp ~/.zshrc ~/github/dotfiles/
 	la ~/github/dotfiles/.zshrc
+}
+
+function Today(){
+	date="$(date '+%Y-%m-%d').md"
+	$EDITOR $TODAY_DIR/$date
+}
+
+function GetDirSizes(){
+	du -h --max-depth=1 .
 }
 
 
