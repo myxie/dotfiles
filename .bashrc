@@ -1,10 +1,71 @@
-################################################################################
+##############################################################################
+# SETTING UP THE .bashrc 
+# ----------------------
+# It's assumed that I (you?) have cloned this from the dotfiles repository.  
+# There are a few 'steps' to follow that help with the setup and make it more 
+# interchangeable. 
+#
+# 
+# RATIONALE 
+# --------- 
+# I want a single .bashrc file that I can use across different machines;
+# this is especially useful with the various remote-systems I use in the HPC 
+# world. However, it ended up being a yak-shaving endeavour trying to get 
+# anything like this compatible between zsh and bash with some form of setup
+# script. Hence, a checklist! 
+#
+# CORE FILES
+# -----------
+# 
+# - .zshrc or .bashrc (depending on system support)
+# - .env (stores Environment variables)
+# - .vimrc (self evident)
+# - helpers.sh (basic and forever evolving helper functions)
+# - pearls.md (programming and shell 'pearls' that I always forget)
+#
+# APPLICATIONS
+# ------------
+# Install necessary applications for effective development (assuming permissions) 
+#  - [ ] sudo apt install vim curl shellcheck 
+#  - [ ] sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+#  
+#
+# EXPORTS
+# -------------------------
+# These are dependent on the environment and therefore even more difficult to
+# keep synchronised. So I don't try to! Copy ~/.env, wich has some placeholders
+# and fill them in/update them based on the machine's requirements. 
+#
+# - [ ] cp .env ~/.env
+# - [ ] Update & add `exports` in ~/.env
+# - [ ] souce ~/.env
+#
+# SYMBOLIC LINKS
+# --------------
+# I had previously had a whole syncing function to go between the ~/.zshrc and $DOTFILES
+# directory, but in hindsight that was ridiculous. Symbolic links are easily the best approach. 
+# This will promote more regular updates of the .zshrc file with git (hopefully). 
+#
+# - [ ] ln -s $DOTFILES/.zshrc ~/.bashrc
+# - [ ] ln -s $DOTFILES/.vimrc ~/.vimrc
+# 
+# SOURCE FILES
+# --------------
+# 
+# - [ ] . ~/.bashrc
+#
+# And that's a wrap! 
+#
+##############################################################################
+
+
+
+##############################################################################
 # BASE .bashrc CONFIGURATION 
 #
-# A lot of useful 
-################################################################################
-
-
+# A lot of useful default .bashrc stuff included here from previous bash 
+# installs. 
+##############################################################################
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -127,24 +188,16 @@ if ! shopt -oq posix; then
   fi
 fi
 
-##########################################
-# ENVIRONMENT MANAGEMENT
-##########################################
+##############################################################################
+# EXPORT MANAGEMENT
+##############################################################################
 
-export EDITOR="vim"
-export DROPBOX="" # Dropbox Path 
-export GITREPOS="" # Git repository directory
-export DOTPATH=$GITREPOS/dotfiles/ # Dotfiles path 
-export PEARLS="" # Pearls.md path
+source ~/.env 
 
-##########################################
-# ALIAS MANAGEMENT
-##########################################
-
-alias check='echo "Exit code:" $?'
-
-##########################################
+##############################################################################
 # FUNCTION MANAGEMENT
-##########################################
+##############################################################################
 
-source $DOTPATH/helpers.sh 
+source $DOTFILES/helpers.sh 
+
+echo "Loaded: .zshrc"

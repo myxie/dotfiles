@@ -25,9 +25,9 @@
 #
 # APPLICATIONS
 # ------------
-# Install necessary applications for effective development (assuming permissions) 
-#  - [x] sudo apt install vim curl shellcheck 
-#  - [x] sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+# Install necessary apps for effective development (assuming permissions)
+#  - [ ] sudo apt install vim curl shellcheck 
+#  - [ ] sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
 #  
 #
 # EXPORTS
@@ -42,9 +42,9 @@
 #
 # SYMBOLIC LINKS
 # --------------
-# I had previously had a whole syncing function to go between the ~/.zshrc and $DOTFILES
-# directory, but in hindsight that was ridiculous. Symbolic links are easily the best approach. 
-# This will promote more regular updates of the .zshrc file with git (hopefully). 
+# I had previously had a whole syncing function to go between the ~/.zshrc and
+# $DOTFILES directory, but in hindsight that was ridiculous. Symbolic links 
+# are easily the best approach.  
 #
 # - [ ] ln -s $DOTFILES/.zshrc ~/.zshrc
 # - [ ] ln -s $DOTFILES/.vimrc ~/.vimrc
@@ -56,28 +56,27 @@
 #
 # And that's a wrap! 
 #
-##########################################
+##############################################################################
 
 ##############################################################################
 # EXPORT MANAGEMENT
-##########################################
+##############################################################################
 
 source ~/.env 
 
-##########################################
+##############################################################################
 # FUNCTION MANAGEMENT
-##########################################
+##############################################################################
 
 source $DOTFILES/helpers.sh 
 
-##################################################
+##############################################################################
 # oh-my-zsh setup 
-##################################################
+##############################################################################
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="geoffgarside"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
-
 
 echo "Loaded: .zshrc"
