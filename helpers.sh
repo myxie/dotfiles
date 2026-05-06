@@ -11,7 +11,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # An admission of pure laziness
-alias resource="source ~/$SOURCE"
+alias resource='source ~/${SOURCE}'
 alias check='echo "Exit code:" $?'
 alias py="python3"
 alias cl="clear"
@@ -39,7 +39,6 @@ function DirSizes(){
 
 function Pearls() {
     DEFAULT_DEPTH=1
-    VAR=${2-$DEFAULT_DEPTH}                   #  What does
-    echo $VAR
-    grep -i "$1" $PEARLS -A $VAR
+    VAR=${2-$DEFAULT_DEPTH}
+    grep -i "$1" "$PEARLS" -A "$VAR"
 }
